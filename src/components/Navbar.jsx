@@ -50,7 +50,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="fixed top-3 left-0 right-0 z-50">
+    <div className="fixed top-3 left-0 right-0 z-50 px-3 sm:px-4 md:px-6">
 
       <div className="max-w-[95%] mx-auto flex items-center justify-between gap-2">
 
@@ -67,78 +67,85 @@ const Navbar = () => {
 
         {/* NAVBAR */}
         <div
-          className="
-          flex items-center
+  className="
+  flex items-center
 
-          gap-1
-          sm:gap-2
-          md:gap-3
+  gap-[2px]
+  sm:gap-1
+  md:gap-3
 
-          px-2
-          sm:px-3
-          md:px-5
+  px-2 sm:px-2.5 md:px-3
+py-1.5 sm:py-2
 
-          py-2
+  rounded-full
 
-          rounded-full
+  bg-white/5
+  backdrop-blur-md
+  border border-white/10
 
-          bg-white/5
-          backdrop-blur-md
-          border border-white/10
+  text-[8px]
+  sm:text-[10px]
+  md:text-sm
 
-          text-[9px]
-          sm:text-[11px]
-          md:text-sm
+  text-gray-300
+  shadow-lg
+  relative
 
-          text-gray-300
-          shadow-lg
-          relative
+  overflow-visible
+  whitespace-nowrap
 
-          overflow-visible
-          whitespace-nowrap
+  max-w-[72vw]
+  sm:max-w-[80vw]
+  md:max-w-full
+  "
+>
 
-          max-w-[78vw]
-          sm:max-w-full
-          "
-        >
+         {/* MENU ITEMS */}
+{menus.map((item, i) => (
+  <button
+    key={i}
+    onClick={() => setActive(item.name)}
+    className={`
+      flex items-center justify-center gap-1.5
 
-          {/* MENU ITEMS */}
-          {menus.map((item, i) => (
-            <button
-              key={i}
-              onClick={() => setActive(item.name)}
-              className={`
-                flex items-center gap-2
+      px-2 sm:px-3
+      py-2
 
-                px-2 sm:px-3
-                py-2
+      rounded-full
+      transition duration-300
+      whitespace-nowrap
 
-                rounded-full
-                transition duration-300
-                whitespace-nowrap
+      ${
+        active === item.name
+          ? "bg-white/10 text-white"
+          : "hover:bg-white/10 hover:text-white"
+      }
 
-                ${
-                  active === item.name
-                    ? "bg-white/10 text-white"
-                    : "hover:bg-white/10 hover:text-white"
-                }
-              `}
-            >
+      ${
+        item.name === "Qualification" || item.name === "Contact"
+          ? "hidden lg:flex"
+          : "flex"
+      }
+    `}
+  >
 
-              {/* ICON */}
-              <img
-                src={item.icon}
-                alt=""
-                className={`
-    w-3 h-3 sm:w-4 sm:h-4 object-contain
-    brightness-0 invert
-  `}
-              />
+    {/* ICON */}
+    <img
+      src={item.icon}
+      alt=""
+      className="
+         w-3 h-3 sm:w-4 sm:h-4
+  object-contain
+  brightness-0 invert
+  shrink-0
+  inline-block
+      "
+    />
 
-              {item.name}
+    {item.name}
 
-            </button>
-          ))}
+  </button>
+))}
 
           {/* MORE DROPDOWN */}
           <div className="relative z-50">
@@ -203,6 +210,50 @@ const Navbar = () => {
             >
 
               <a
+  href="/"
+  className="
+    flex lg:hidden items-center gap-2
+    px-4 py-2
+    rounded-xl
+    hover:bg-white/10
+    transition
+  "
+>
+  <img
+    src="/images/qualification.png"
+    alt=""
+    className="
+      w-3 h-3 sm:w-4 sm:h-4 object-contain
+      brightness-0 invert
+    "
+  />
+
+  Qualification
+</a>
+
+<a
+  href="/"
+  className="
+    flex lg:hidden items-center gap-2
+    px-4 py-2
+    rounded-xl
+    hover:bg-white/10
+    transition
+  "
+>
+  <img
+    src="/images/contact.png"
+    alt=""
+    className="
+      w-3 h-3 sm:w-4 sm:h-4 object-contain
+      brightness-0 invert
+    "
+  />
+
+  Contact
+</a>
+
+              <a
                 href="/"
                 className="
                 flex items-center gap-2
@@ -221,28 +272,6 @@ const Navbar = () => {
                 />
 
                 Services
-
-              </a>
-
-              <a
-                href="/"
-                className="
-                flex items-center gap-2
-                px-4 py-2
-                rounded-xl
-                hover:bg-white/10
-                transition
-                "
-              >
-
-                <img
-                  src="/images/blog.png"
-                  alt=""
-                  className="w-3 h-3 sm:w-4 sm:h-4 object-contain
-    brightness-0 invert"
-                />
-
-                Blogs
 
               </a>
 
