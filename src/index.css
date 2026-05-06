@@ -1,3 +1,37 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body{
+  background: radial-gradient(circle at top, #07182f, #020617);
+  font-family: sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* DARK MODE */
+.dark body {
+  background: #020617;
+  color: white;
+}
+
+/* LIGHT MODE */
+body {
+  transition: all 0.3s ease;
+}
+
+/* HIDE SCROLLBAR */
+html {
+  scroll-behavior: smooth;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
