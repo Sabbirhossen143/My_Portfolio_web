@@ -35,3 +35,34 @@ html {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+@keyframes spinSlow {
+  0% {
+    transform: rotate(0deg) scale(1);
+    border-radius: 55% 45% 60% 40%;
+  }
+
+  25% {
+    transform: rotate(90deg) scale(1.02);
+    border-radius: 40% 60% 45% 55%;
+  }
+
+  50% {
+    transform: rotate(180deg) scale(0.98);
+    border-radius: 60% 40% 55% 45%;
+  }
+
+  75% {
+    transform: rotate(270deg) scale(1.03);
+    border-radius: 45% 55% 40% 60%;
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+    border-radius: 55% 45% 60% 40%;
+  }
+}
+
+.animate-spin-slow {
+  animation: spinSlow 8s linear infinite;
+}

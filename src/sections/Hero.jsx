@@ -94,28 +94,28 @@ const Hero = () => {
             </div>
 
             {/* BUTTON */}
-            <button className="mt-8 bg-white/10 border border-white/10 backdrop-blur-md px-8 py-4 rounded-full hover:bg-cyan-500/20 transition flex items-center gap-3">
+            <button className="mt-8 bg-white/10 border border-white/10 backdrop-blur-md px-5 py-2.5 sm:px-8 sm:py-3 rounded-full hover:bg-cyan-500 transition flex items-center gap-2 sm:gap-3">
 
               Say Hello
 
               {/* BUTTON PNG PLACE */}
               <img
-                src="/images/contact.png"
+                src="/images/hello.png"
                 alt=""
-                className="w-8 h-8 sm:w-4 sm:h-4 object-contain
+                className="w-5 h-5 sm:w-7 sm:h-7 object-contain
     brightness-0 invert"
               />
 
             </button>
 
             {/* SCROLL DOWN */}
-            <div className="mt-12 flex items-center gap-3 text-gray-400">
+            <div className="mt-12 flex items-center gap-3 text-gray-400 hover:text-cyan-400 transition cursor-pointer">
 
               {/* SCROLL ICON PLACE */}
               <img
                 src="/images/mouse.png"
                 alt=""
-                className="w-5 h-5 sm:w-4 sm:h-4 object-contain
+                className="w-5 h-5 sm:w-7 sm:h-7 object-contain
     brightness-0 invert"
               />
 
@@ -132,7 +132,7 @@ const Hero = () => {
           <div className="flex justify-center relative">
 
             {/* ANIMATED BORDER */}
-            <div className="absolute w-[340px] h-[340px] rounded-full border-2 border-cyan-400 animate-pulse"></div>
+            <div className="absolute w-[340px] h-[340px] rounded-[55%_45%_60%_40%] border-2 border-cyan-400/70 animate-spin-slow blur-[1px]"></div>
 
             {/* IMAGE CONTAINER */}
             <div className="relative w-[320px] h-[320px] rounded-full bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center overflow-hidden">
