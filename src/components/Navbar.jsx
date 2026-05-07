@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   FaChevronDown,
   FaMoon,
@@ -8,22 +8,45 @@ import {
 const Navbar = () => {
   const [active, setActive] = useState("Home");
   const [open, setOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
 
   // DARK MODE DEFAULT
   const [darkMode, setDarkMode] = useState(true);
 
-  // APPLY THEME
-  useEffect(() => {
-    if (darkMode) {
-      document.documentElement.classList.add("dark");
-      document.body.style.background = "#020617";
-      document.body.style.color = "white";
-    } else {
-      document.documentElement.classList.remove("dark");
-      document.body.style.background = "#f8fafc";
-      document.body.style.color = "black";
+   // APPLY THEME
+useEffect(() => {
+  if (darkMode) {
+    document.documentElement.classList.add("dark");
+    document.body.style.background = "#020617";
+    document.body.style.color = "white";
+  } else {
+    document.documentElement.classList.remove("dark");
+    document.body.style.background = "#f8fafc";
+    document.body.style.color = "black";
+  }
+}, [darkMode]);
+
+// CLOSE DROPDOWN ON OUTSIDE CLICK
+useEffect(() => {
+  const handleClickOutside = (event) => {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target)
+    ) {
+      setOpen(false);
     }
-  }, [darkMode]);
+  };
+
+  document.addEventListener("mousedown", handleClickOutside);
+
+  return () => {
+    document.removeEventListener(
+      "mousedown",
+      handleClickOutside
+    );
+  };
+}, []);
 
   // NAV ITEMS
   const menus = [
@@ -52,7 +75,7 @@ const Navbar = () => {
   return (
     <div className="fixed top-3 left-0 right-0 z-50 px-3 sm:px-4 md:px-6">
 
-      <div className="max-w-[95%] mx-auto flex items-center justify-between gap-2">
+      <div className="max-w-fit mx-auto flex items-center gap-8 sm:gap-[110px] md:gap-180px] lg:gap-[160px]">
 
         {/* LOGO */}
         <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shrink-0">
@@ -70,9 +93,9 @@ const Navbar = () => {
   className="
   flex items-center
 
-  gap-[2px]
-  sm:gap-1
-  md:gap-3
+  gap-2
+sm:gap-2.5
+md:gap-3
 
   px-2 sm:px-2.5 md:px-3
 py-1.5 sm:py-2
@@ -108,7 +131,7 @@ py-1.5 sm:py-2
     className={`
       flex items-center justify-center gap-1.5
 
-      px-2 sm:px-3
+      px-3 sm:px-3.5 md:px-4
       py-2
 
       rounded-full
@@ -133,13 +156,18 @@ py-1.5 sm:py-2
     <img
       src={item.icon}
       alt=""
-      className="
-         w-3 h-3 sm:w-4 sm:h-4
+      className={`
   object-contain
   brightness-0 invert
   shrink-0
   inline-block
-      "
+
+  ${
+    item.name === "Home"
+      ? "w-2.5 h-2.5 sm:w-4 sm:h-4 relative -top-[1px] sm:top-0"
+      : "w-3 h-3 sm:w-4 sm:h-4"
+  }
+`}
     />
 
     {item.name}
@@ -148,7 +176,7 @@ py-1.5 sm:py-2
 ))}
 
           {/* MORE DROPDOWN */}
-          <div className="relative z-50">
+          <div ref={dropdownRef} className="relative z-50">
 
             <button
               onClick={() => setOpen(!open)}

@@ -13,7 +13,7 @@ const Hero = () => {
     <section className="min-h-screen bg-[#020617] text-white relative overflow-hidden flex items-center">
 
       {/* LEFT SIDE SOCIAL ICONS */}
-      <div className="hidden lg:flex flex-col gap-5 absolute left-6 top-1/2 -translate-y-1/2 z-20">
+      <div className="flex flex-col gap-3 absolute left-1 sm:left-3 md:left-2 lg:left-80 xl:left-96 top-[28%] sm:top-[35%] md:top-1/2 -translate-y-1/2 z-20">
 
         <a
           href="/"
@@ -40,27 +40,29 @@ const Hero = () => {
       {/* BACKGROUND GLOW */}
       <div className="absolute left-0 top-0 w-[400px] h-[400px] bg-cyan-500/10 blur-3xl rounded-full"></div>
 
-      <div className="max-w-6xl mx-auto px-4 w-full">
+      <div className="max-w-4xl mx-auto px-4 w-full">
 
         
 
         {/* HERO CONTENT */}
-        <div className="grid md:grid-cols-2 gap-12 items-center pt-32">
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-2 items-center pt-32">
 
           {/* LEFT */}
-          <div>
+          <div className="pl-10 sm:pl-12 md:pl-0">
 
-            <p className="text-gray-400 mb-4">
+            <p className="text-white mb-4">
               Hey, I'm
             </p>
 
-            <h1 className="text-5xl md:text-6xl font-bold">
+            <h1 className="text-5xl md:text-5xl font-bold">
               Sabbir Hossen👋
             </h1>
 
             {/* TYPING TEXT */}
             <div className="text-2xl text-gray-300 mt-5 font-medium h-[40px]">
-
+              <span className="text-white">
+                   I am a&nbsp;
+              </span>
               <TypeAnimation
                 sequence={[
                   "Web Designer",
@@ -71,6 +73,7 @@ const Hero = () => {
                   1500,
                 ]}
                 wrapper="span"
+                className="text-white"
                 speed={40}
                 repeat={Infinity}
               />
