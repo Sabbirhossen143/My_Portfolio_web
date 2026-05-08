@@ -129,70 +129,47 @@ const Hero = () => {
           </div>
 
           {/* RIGHT IMAGE */}
-          <div className="flex justify-center relative">
+<div className="flex justify-center relative">
 
-            {/* ANIMATED BORDER */}
-            <div className="absolute w-[340px] h-[340px] rounded-[55%_45%_60%_40%] border-2 border-cyan-400/70 animate-spin-slow blur-[1px]"></div>
+  <div className="relative w-[320px] h-[320px]">
 
-            {/* IMAGE CONTAINER */}
-            <div className="relative w-[320px] h-[320px] rounded-full bg-white/5 backdrop-blur-md border border-white/10 flex items-center justify-center overflow-hidden">
+    {/* ANIMATED MASK */}
+    <div className="absolute inset-0 rounded-[55%_45%_60%_40%] overflow-hidden animate-spin-slow">
 
-              {/* YOUR IMAGE */}
-              <img
-                src="/images/profile.jpeg"
-                alt=""
-                className="w-72 h-72 object-cover rounded-full"
-              />
+      <img
+        src="/images/profile.jpeg"
+        alt=""
+        className="w-full h-full object-cover"
+      />
 
-              {/* TOP CARD */}
-              <div className="absolute top-4 right-0 bg-[#0f172a] border border-white/10 rounded-xl px-4 py-3">
+    </div>
 
-                <div className="flex items-center gap-3">
+    {/* ANIMATED BORDER */}
+    <div className="absolute inset-0 rounded-[55%_45%_60%_40%] border-[3px] border-cyan-400/80 animate-spin-slow pointer-events-none"></div>
 
-                  {/* BADGE ICON PLACE */}
-                  <img
-                    src="/images/problem.png"
-                    alt=""
-                    className="w-5 h-5"
-                  />
+    {/* TOP CARD */}
+    <div className="absolute top-4 right-0 bg-[#0f172a] border border-white/10 rounded-xl px-4 py-3">
 
-                  <div>
-                    <h3 className="font-bold">
-                      120
-                    </h3>
+      <div className="flex items-center gap-3">
 
-                    <p className="text-xs text-gray-400">
-                      Problem Solving
-                    </p>
-                  </div>
+        <img
+          src="/images/problem.png"
+          alt=""
+          className="w-5 h-5"
+        />
 
-                </div>
-              </div>
+        <div>
+          <h3 className="font-bold">
+            120
+          </h3>
 
-              {/* LEFT CARD */}
-              <div className="absolute left-0 top-1/2 -translate-x-1/2 bg-[#0f172a] border border-white/10 rounded-xl px-4 py-3">
+          <p className="text-xs text-gray-400">
+            Problem Solving
+          </p>
+        </div>
 
-                <div className="flex items-center gap-3">
-
-                  <img
-                    src="/images/experience.png"
-                    alt=""
-                    className="w-5 h-5"
-                  />
-
-                  <div>
-                    <h3 className="font-bold">
-                      3
-                    </h3>
-
-                    <p className="text-xs text-gray-400">
-                      Year Experience
-                    </p>
-                  </div>
-
-                </div>
-              </div>
-
+      </div>
+    </div>
               {/* BOTTOM CARD */}
               <div className="absolute bottom-2 right-10 translate-y-1/2 bg-[#0f172a] border border-white/10 rounded-xl px-4 py-3">
 

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+body {
   background: radial-gradient(circle at top, #07182f, #020617);
   font-family: sans-serif;
 }
@@ -23,10 +23,6 @@ body {
 }
 
 /* HIDE SCROLLBAR */
-html {
-  scroll-behavior: smooth;
-}
-
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }
@@ -36,33 +32,34 @@ html {
   scrollbar-width: none;
 }
 
-@keyframes spinSlow {
+/* BUBBLE BORDER ANIMATION */
+@keyframes bubbleMove {
   0% {
-    transform: rotate(0deg) scale(1);
     border-radius: 55% 45% 60% 40%;
+    transform: scale(1);
   }
 
   25% {
-    transform: rotate(90deg) scale(1.02);
     border-radius: 40% 60% 45% 55%;
+    transform: scale(1.02);
   }
 
   50% {
-    transform: rotate(180deg) scale(0.98);
     border-radius: 60% 40% 55% 45%;
+    transform: scale(0.98);
   }
 
   75% {
-    transform: rotate(270deg) scale(1.03);
     border-radius: 45% 55% 40% 60%;
+    transform: scale(1.03);
   }
 
   100% {
-    transform: rotate(360deg) scale(1);
     border-radius: 55% 45% 60% 40%;
+    transform: scale(1);
   }
 }
 
 .animate-spin-slow {
-  animation: spinSlow 8s linear infinite;
+  animation: bubbleMove 6s ease-in-out infinite;
 }
